@@ -3,11 +3,15 @@
 @section('content')
     <div class="container">
         <div class="d-flex justify-content-between align-items-center">
-            @isset($category)
+            @if (@isset($category))
             <h1>Category : {{ ucfirst($category->name) }}</h1>
-            @else
+            @endif
+            @if (@isset($tag))
+            <h1>Tag : {{ ucfirst($tag->name) }}</h1>
+            @endif
+            @if ((!(@isset($tag))) && (!(@isset($category))))
             <h1>Welcome To my Blog</h1>
-            @endisset
+            @endif
             <div class="div">
                 <div class="btn-group">
                     <button type="button" class="btn border border-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -35,10 +39,19 @@
                 @foreach ($posts as $post)
                 <div class="col-lg-4 mb-4">
                     <div class="card">
-                        <div class="card-header"><h5>{{ ucwords(Str::limit($post->title, 20)) }}</h5></div>
-                        <div class="card-body">{{ Str::limit($post->body, 150, '') }}  <a href="{{ route('posts.getPost', $post->slug) }}">read more...</a></div>
+                        <div class="card-header">
+                            <h5>{{ ucwords(Str::limit($post->title, 20)) }}</h5>
+                            @foreach ($post->tags as $tag)
+                                <a style="font-size: 14px" href="{{ route('posts.filterByTag', $tag) }}" class="bg-dark text-white px-1 rounded py-1">{{ $tag->name }}</a>
+                            @endforeach
+                        </div>
+                        <div class="card-body">
+                            {{ Str::limit($post->body, 200, '') }}
+                            <a href="{{ route('posts.getPost', $post->slug) }}">read more...</a></div>
+
                         <div class="card-footer d-flex justify-content-between align-items-center">
                             <div>{{ $post->created_at->format('d M, y') }}</div>
+                            @include('posts.category')
                         </div>
                     </div>
                 </div>
