@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Auth;
@@ -36,3 +37,5 @@ Route::get('/posts/{post:slug}/delete', [PostController::class, 'delete']);
 
 Route::get('/posts/edit/{post:slug}', [PostController::class, 'edit']);
 Route::patch('/posts/update/{post:slug}', [PostController::class, 'update']);
+
+Route::get('/posts/category/{category:name}', [CategoryController::class, 'filterByCategory'])->name('posts.filterByCategory');
