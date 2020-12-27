@@ -18,7 +18,7 @@
                 <a href="{{ route('posts.getAllPost') }}" class="btn btn-success ml-3">Back</a>
             </div>
         </div>
-        @include('posts.category')
+        @include('posts.partials.category')
         <hr>
         <p>{{ $post->body }}</p>
     </div>

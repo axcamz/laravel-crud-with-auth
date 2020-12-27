@@ -51,7 +51,7 @@
 
                         <div class="card-footer d-flex justify-content-between align-items-center">
                             <div>{{ $post->created_at->format('d M, y') }}</div>
-                            @include('posts.category')
+                            @include('posts.partials.category')
                         </div>
                     </div>
                 </div>
