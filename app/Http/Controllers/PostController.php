@@ -52,7 +52,7 @@ class PostController extends Controller
         $data['slug'] = Str::slug(request('title'));
         $data['category_id'] = request('category_id');
 
-        $post = Post::create($data);
+        $post = auth()->user()->posts()->create($data);
         // attach post_ids and tag_ids
         $post->tags()->attach(request('tags'));
 
@@ -89,10 +89,15 @@ class PostController extends Controller
     // Delete Function
     public function delete(Post $post)
     {
-        $post->tags()->detach();
-        $post->delete();
-        session()->flash('success', 'Delete Post Success');
-        return redirect('/posts');
+        if (auth()->user() == $post->author) {
+            $post->tags()->detach();
+            $post->delete();
+            session()->flash('success', 'Delete Post Success');
+            return redirect('/posts');
+        } else {
+            return back();
+        }
+
     }
 
 

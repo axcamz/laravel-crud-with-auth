@@ -19,7 +19,7 @@ class PostSeeder extends Seeder
     public function run()
     {
         $tags = Tag::all();
-        Post::factory(10)->create();
+        Post::factory(100)->create();
 
         // loop all Posts
         Post::all()->each(function ($post) use ($tags) {

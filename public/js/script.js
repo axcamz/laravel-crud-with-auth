@@ -6,7 +6,7 @@ window.addEventListener('load', () => {
         session.classList.add('animate')
         setTimeout(() => {
             session.classList.remove('animate')
-        }, 5000);
+        }, 3000);
     } catch (error) {
     }
 });

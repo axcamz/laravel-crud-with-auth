@@ -44,7 +44,11 @@
                 <div class="col-lg-4 mb-4">
                     <div class="card">
                         <div class="card-header">
+                            @if (auth()->user()->is($post->author))
+                            <h5 class="text-success">{{ ucwords(Str::limit($post->title, 20)) }}</h5>
+                            @else
                             <h5>{{ ucwords(Str::limit($post->title, 20)) }}</h5>
+                            @endif
                             @foreach ($post->tags as $tag)
                                 <a style="font-size: 14px" href="{{ route('posts.filterByTag', $tag) }}" class="bg-dark text-white px-1 rounded py-1">{{ $tag->name }}</a>
                             @endforeach

@@ -6,7 +6,8 @@
         <div class="d-flex justify-content-between align-items-end">
             <span>Updated at {{$post->updated_at->diffforHumans()}}</span>
             <div class="d-flex">
-                @if (Auth::check())
+                @auth
+                @if (auth()->user()->is($post->author))
                 <div class="btn-group">
                     <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       Option
@@ -17,10 +18,12 @@
                     </div>
                 </div>
                 @endif
+                @endauth
                 <a href="{{ route('posts.getAllPost') }}" class="btn btn-success ml-3">Back</a>
             </div>
         </div>
         @include('posts.partials.category')
+        <div class="text-secondary">Author {{ $post->author->name }}</div>
         <hr>
         <p>{{ $post->body }}</p>
     </div>
