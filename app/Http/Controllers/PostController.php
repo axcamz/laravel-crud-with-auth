@@ -12,6 +12,10 @@ use Illuminate\Support\Str;
 class PostController extends Controller
 {
 
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
     // Get ALl Post
     public function getAllPost()
     {
@@ -49,6 +53,7 @@ class PostController extends Controller
         $data['category_id'] = request('category_id');
 
         $post = Post::create($data);
+        // attach post_ids and tag_ids
         $post->tags()->attach(request('tags'));
 
         session()->flash('success', 'Create Post Success');

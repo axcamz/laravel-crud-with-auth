@@ -6,15 +6,17 @@
         <div class="d-flex justify-content-between align-items-end">
             <span>Updated at {{$post->updated_at->diffforHumans()}}</span>
             <div class="d-flex">
+                @if (Auth::check())
                 <div class="btn-group">
                     <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       Option
                     </button>
                     <div class="dropdown-menu">
                         <a href="/posts/edit/{{$post->slug}}" class="dropdown-item">Edit Post</a>
-                        <button  data-toggle="modal" data-target="#deleteModal" class="dropdown-item">Delete</button>
+                        <button  data-toggle="modal" data-target="#deleteModal" class="dropdown-item text-white bg-danger">Delete</button>
                     </div>
-                  </div>
+                </div>
+                @endif
                 <a href="{{ route('posts.getAllPost') }}" class="btn btn-success ml-3">Back</a>
             </div>
         </div>
@@ -33,7 +35,7 @@
               </button>
             </div>
             <div class="modal-body">
-              Are you sure to Delete this Post?
+              Are you sure to <strong class="text-danger">Delete</strong> this Post?
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

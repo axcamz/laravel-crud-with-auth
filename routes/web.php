@@ -26,19 +26,18 @@ Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-// Posts
+// CRUD Posts
 Route::get('/posts', [PostController::class, 'getAllPost'])->name('posts.getAllPost');
-
-Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
-Route::post('/posts/save', [PostController::class, 'save']);
-
+Route::middleware('auth')->group(function() {
+    Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
+    Route::post('/posts/save', [PostController::class, 'save']);
+    Route::get('/posts/edit/{post:slug}', [PostController::class, 'edit']);
+    Route::patch('/posts/update/{post:slug}', [PostController::class, 'update']);
+    Route::get('/posts/{post:slug}/delete', [PostController::class, 'delete']);
+});
 Route::get('/posts/{post:slug}', [PostController::class, 'getPost'])->name('posts.getPost');
 
-Route::get('/posts/{post:slug}/delete', [PostController::class, 'delete']);
 
-Route::get('/posts/edit/{post:slug}', [PostController::class, 'edit']);
-Route::patch('/posts/update/{post:slug}', [PostController::class, 'update']);
-
-// Filter
+// Filter Post
 Route::get('/posts/category/{category:name}', [CategoryController::class, 'filterByCategory'])->name('posts.filterByCategory');
 Route::get('/posts/tag/{tag:name}', [TagController::class, 'filterByTag'])->name('posts.filterByTag');

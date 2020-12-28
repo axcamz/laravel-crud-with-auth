@@ -24,7 +24,11 @@
                         @endforeach
                     </div>
                 </div>
+                @auth
                 <a href="/posts/create" class="btn btn-primary text-center">Create Post</a>
+                @else
+                <a href="{{ route('login') }}" class="btn btn-primary text-center">Login to Create Post</a>
+                @endauth
             </div>
         </div>
         <hr>
