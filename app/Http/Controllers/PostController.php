@@ -75,6 +75,7 @@ class PostController extends Controller
 
     public function update(Post $post, PostRequest $request)
     {
+        $this->authorize('update', $post);
         $request['category_id'] = request('category_id');
 
         $post->update($request->all());

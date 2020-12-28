@@ -7,7 +7,7 @@
             <span>Updated at {{$post->updated_at->diffforHumans()}}</span>
             <div class="d-flex">
                 @auth
-                @if (auth()->user()->is($post->author))
+                @can('update', $post)
                 <div class="btn-group">
                     <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       Option
@@ -17,7 +17,7 @@
                         <button  data-toggle="modal" data-target="#deleteModal" class="dropdown-item text-white bg-danger">Delete</button>
                     </div>
                 </div>
-                @endif
+                @endcan
                 @endauth
                 <a href="{{ route('posts.getAllPost') }}" class="btn btn-success ml-3">Back</a>
             </div>
