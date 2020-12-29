@@ -43,6 +43,7 @@
                 @foreach ($posts as $post)
                 <div class="col-lg-4 mb-4">
                     <div class="card">
+                        <img style="object-fit: cover; height: 300px;" src="{{ "storage/".$post->thumbnail }}" class="card-img-top" alt="...">
                         <div class="card-header">
                             @can('update', $post)
                             <h5 class="text-success">{{ ucwords(Str::limit($post->title, 20)) }}</h5>

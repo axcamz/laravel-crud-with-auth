@@ -8,7 +8,7 @@
         <hr>
         <div class="row">
             <div class="col-lg-10">
-                <form method="post" action="/posts/update/{{ $post->slug }}">
+                <form method="post" action="/posts/update/{{ $post->slug }}" enctype="multipart/form-data">
                     @csrf
                     @method('patch')
                     @include('posts.partials.form-control')

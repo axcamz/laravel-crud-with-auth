@@ -8,11 +8,11 @@
         <hr>
         <div class="row">
             <div class="col-lg-10">
-                <form method="POST" action="/posts/save">
+                <form method="POST" action="/posts/save" enctype="multipart/form-data">
                     @csrf
                     @include('posts.partials.form-control')
                     <button type="submit" class="btn btn-primary">Submit</button>
-                  </form>
+                </form>
             </div>
         </div>
     </div>

@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class PostController extends Controller
@@ -45,14 +46,29 @@ class PostController extends Controller
             ]);
         }
 
-    public function save(PostRequest $request)
+    public function store(PostRequest $request)
     {
         // dd(request('tags'));
         $data = $request->all();
-        $data['slug'] = Str::slug(request('title'));
-        $data['category_id'] = request('category_id');
 
+        // Create Slug of title
+        $data['slug'] = Str::slug(request('title'));
+        $slug = $data['slug'];
+
+        // Check Thumbnail
+        if ($request->file('thumbnail')) {
+            $thumbnail = request()->file('thumbnail')->store("images/posts");
+        } else {
+            $thumbnail = null;
+        }
+
+        // Assign
+        $data['category_id'] = request('category_id');
+        $data['thumbnail'] = $thumbnail;
+
+        // save posts
         $post = auth()->user()->posts()->create($data);
+
         // attach post_ids and tag_ids
         $post->tags()->attach(request('tags'));
 
@@ -76,9 +92,21 @@ class PostController extends Controller
     public function update(Post $post, PostRequest $request)
     {
         $this->authorize('update', $post);
-        $request['category_id'] = request('category_id');
 
-        $post->update($request->all());
+        // Chech is thumbnail or no
+        if ($request->file('thumbnail')) { //if yes -> delete old thumbnail and replace new
+            Storage::delete($post->thumbnail);
+            $thumbnail = request()->file('thumbnail')->store("images/posts");
+        } else {
+            $thumbnail = $post->thumbnail;
+        }
+
+        $data = $request->all();
+
+        $data['category_id'] = request('category_id');
+        $data['thumbnail'] = $thumbnail;
+
+        $post->update($data);
         $post->tags()->sync(request('tags'));
 
         session()->flash('success', 'Update Post Success');
@@ -92,6 +120,7 @@ class PostController extends Controller
     {
         if (auth()->user() == $post->author) {
             $post->tags()->detach();
+            Storage::delete($post->thumbnail);
             $post->delete();
             session()->flash('success', 'Delete Post Success');
             return redirect('/posts');
