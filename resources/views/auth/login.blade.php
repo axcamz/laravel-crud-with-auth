@@ -1,73 +1,32 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
-
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
-
-                        <div class="form-group row">
-                            <label for="username" class="col-md-4 col-form-label text-md-right">{{ __('Username') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username" autofocus>
-
-                                @error('username')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
-                            </div>
-                        </div>
-                    </form>
+<div class="flex flex-col lg:flex-row lg:container lg:mx-auto lg:py-10 items-center">
+    <div class="w-4/6">
+        <img class="lg:mb-0 mb-10" src="{{ asset('backround/login.png') }}" alt="">
+    </div>
+    <div class="lg:w-1/3 lg:px-0 w-full px-10">
+        <form action="{{ route('login') }}" method="post">
+            @csrf
+            <div class="flex flex-col px-2">
+                <h1 class="text-4xl font-bold self-center mb-10">Log in</h1>
+                <div class="form-control w-full flex flex-col mb-10">
+                    <label class="mb-2 font-medium" for="username">Username</label>
+                    <input class="py-2 px-3 border-gray-400 border rounded focus:ring-4 focus:border-gray-800 transition outline-none" type="text" name="username" id="username">
+                    @error('username')
+                        <p class="text-red-800">{{ $message }}</p>
+                    @enderror
                 </div>
+                <div class="form-control w-full flex flex-col mb-10">
+                    <label class="mb-2 font-medium" for="password">Password</label>
+                    <input class="py-2 px-3 border-gray-400 border rounded focus:ring-4 focus:border-gray-800 transition outline-none" type="password" name="password" id="password">
+                    @error('username')
+                        <p class="text-red-800">{{ $message }}</p>
+                    @enderror
+                </div>
+                <button type="submit" class="bg-black text-xl py-2 rounded text-white">Log in</button>
             </div>
-        </div>
+        </form>
     </div>
 </div>
 @endsection

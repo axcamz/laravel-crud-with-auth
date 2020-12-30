@@ -10,3 +10,10 @@ window.addEventListener('load', () => {
     } catch (error) {
     }
 });
+
+
+const dropdown = document.querySelector('.dropdown');
+console.log(dropdown);
+dropdown.addEventListener('click', () => {
+    dropdown.classList.toggle('open');
+})

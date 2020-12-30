@@ -46,9 +46,9 @@
                         <img style="object-fit: cover; height: 300px;" src="{{ "storage/".$post->thumbnail }}" class="card-img-top" alt="...">
                         <div class="card-header">
                             @can('update', $post)
-                            <h5 class="text-success">{{ ucwords(Str::limit($post->title, 20)) }}</h5>
+                            <h5 class="text-success font-bold">{{ ucwords(Str::limit($post->title, 20)) }}</h5>
                             @else
-                            <h5>{{ ucwords(Str::limit($post->title, 20)) }}</h5>
+                            <h5 class="font-thin text-3xl">{{ ucwords(Str::limit($post->title, 20)) }}</h5>
                             @endcan
                             @foreach ($post->tags as $tag)
                                 <a style="font-size: 14px" href="{{ route('posts.filterByTag', $tag) }}" class="bg-dark text-white px-1 rounded py-1">{{ $tag->name }}</a>
