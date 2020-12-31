@@ -13,7 +13,28 @@ window.addEventListener('load', () => {
 
 
 const dropdown = document.querySelector('.dropdown');
-console.log(dropdown);
+const dropdown_icon = document.querySelector('.dropdown-icon')
 dropdown.addEventListener('click', () => {
     dropdown.classList.toggle('open');
+})
+
+// close dropdown
+document.addEventListener('keydown', (e) => {
+    if(e.key == 'Escape'){
+        dropdown.classList.remove('open')
+    }
+})
+
+// Logout handle
+const logout = document.querySelector('.logout')
+logout.addEventListener('click', (e)=>{
+    e.preventDefault();
+    document.getElementById('logout').submit();
+})
+
+// handle navbar
+const trigger = document.querySelector('.trigger');
+const listNav = document.querySelector('.nav-link');
+trigger.addEventListener('click', () => {
+    listNav.classList.toggle('hidden');
 })
