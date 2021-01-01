@@ -9,10 +9,22 @@ module.exports = {
         fontFamily: {
             sans: ['Poppins', 'sans-serif']
         },
-        extend: {},
+        extend: {
+            transitionProperty: {
+                'height': 'height',
+                'spacing': 'margin, padding',
+                'max-height': 'max-height',
+            }
+        },
     },
     variants: {
-        extend: {},
+        transform: ['hover', 'responsive'],
+        rotate: ['group-hover'],
+        display: ['group-hover', 'responsive'],
+        overflow: ['group-hover', 'responsive'],
+        height: ['group-hover', 'responsive'],
+        maxHeight: ['group-hover', 'responsive'],
+        scale: ['group-hover'],
     },
     plugins: [],
 }

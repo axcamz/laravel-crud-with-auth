@@ -28,6 +28,10 @@ class Post extends Model
     // getUrlImage
     public function getTakeImageAttribute()
     {
-        return "storage/" . $this->thumbnail;
+        if ($this->thumbnail) {
+            return "storage/" . $this->thumbnail;
+        } else {
+            false;
+        }
     }
 }

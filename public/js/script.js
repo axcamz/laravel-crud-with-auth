@@ -11,6 +11,15 @@ window.addEventListener('load', () => {
     }
 });
 
+// handle navbar
+const trigger = document.querySelector('#trigger');
+const listNav = document.querySelector('#nav-link');
+const icon = document.querySelectorAll('.icon');
+trigger.addEventListener('click', () => {
+    icon[0].classList.toggle('hidden')
+    icon[1].classList.toggle('hidden')
+    listNav.classList.toggle('hidden');
+})
 
 const dropdown = document.querySelector('.dropdown');
 const dropdown_icon = document.querySelector('.dropdown-icon')
@@ -29,12 +38,6 @@ document.addEventListener('keydown', (e) => {
 const logout = document.querySelector('.logout')
 logout.addEventListener('click', (e)=>{
     e.preventDefault();
-    document.getElementById('logout').submit();
+    document.querySelector('#logout').submit();
 })
 
-// handle navbar
-const trigger = document.querySelector('.trigger');
-const listNav = document.querySelector('.nav-link');
-trigger.addEventListener('click', () => {
-    listNav.classList.toggle('hidden');
-})
