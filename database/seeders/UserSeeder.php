@@ -20,13 +20,7 @@ class UserSeeder extends Seeder
             'username'      => 'axcamz',
             'email'         => 'acamaulana123@gmail.com',
             'password'      => bcrypt('admin123'),
-            ],
-            [
-            'name'          => 'Heru Maulana',
-            'username'      => 'heru',
-            'email'         => 'acamaulanaheru@gmail.com',
-            'password'      => bcrypt('admin123'),
-        ]);
+            ]);
         foreach ($users as $user) {
             User::create($user);
         }

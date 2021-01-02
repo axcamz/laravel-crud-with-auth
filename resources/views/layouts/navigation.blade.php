@@ -1,4 +1,4 @@
-<nav class="bg-black">
+<nav class="bg-black z-50">
     <div class="flex flex-col lg:flex-row lg:px-0 px-3 py-2 lg:py-4  lg:container lg:mx-auto">
         <div class="flex  items-center justify-between">
             <div class="font-bold text-xl lg:text-3xl text-white">Friday.</div>
@@ -26,7 +26,7 @@
                     <div><a href="{{ route('login') }}" class=" font-semibold text-lg bg-white text-black px-2 py-1 rounded" >Log in</a></div>
                     @endif
                 @else
-                    <div class="dropdown flex justify-between items-center text-lg bg-white text-black px-2 py-1 rounded">
+                    <div class="dropdown z-50 flex justify-between items-center text-lg bg-white text-black px-2 py-1 rounded">
                         <p class="mr-5 md:text-base text-sm">{{ Auth::user()->name }}</p>
                         <svg class="dropdown-icon" width="20" height="20" viewBox="-50 0 550 400">
                             <path d="M225.923,354.706c-8.098,0-16.195-3.092-22.369-9.263L9.27,151.157c-12.359-12.359-12.359-32.397,0-44.751

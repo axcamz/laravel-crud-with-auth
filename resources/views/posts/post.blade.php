@@ -2,7 +2,11 @@
 
 @section('content')
     <div class="z-0 relative">
+        @if ($post->takeImage)
         <img src="{{ $post->takeImage }}" alt="Thumbnail" class="lg:h-80 w-full object-cover object-center">
+        @else
+        <div class="lg:h-80 w-full h-60 bg-gray-800 flex justify-center items-center text-white text-2xl">No Thumbnail</div>
+        @endif
     </div>
     <div class="lg:px-0 px-3">
         <div class="lg:container shadow-lg relative rounded -mt-20 lg:-mt-28 bg-white lg:px-0 lg:mx-auto text-black z-10">
@@ -18,6 +22,12 @@
                     </div>
                 </div>
                 <span class="text-gray-900 mt-3 block">Author &middot; {{ $post->author->name }}</span>
+                <div class="flex lg:max-w-sm max-w-max">
+                    <span class="mr-3">Tag: </span>
+                    @foreach ($post->tags as $tag)
+                        <span class="mr-1 bg-gray-700 px-1 rounded text-white">{{ $tag->name }}</span>
+                    @endforeach
+                </div>
                 <div class="mt-6">
                     <p class="2xl:text-xl text-base">{{ $post->body }}</p>
                 </div>
