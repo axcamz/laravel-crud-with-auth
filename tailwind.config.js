@@ -25,6 +25,7 @@ module.exports = {
         height: ['group-hover', 'responsive'],
         maxHeight: ['group-hover', 'responsive'],
         scale: ['group-hover'],
+        flex: ['group-hover', 'responsive'],
     },
     plugins: [],
 }

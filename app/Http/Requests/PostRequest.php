@@ -24,7 +24,7 @@ class PostRequest extends FormRequest
     public function rules()
     {
         return [
-            'thumbnail' => ['image', 'mimes:jpg, jpeg, png', 'max:2048'],
+            'thumbnail' => ['image', 'mimes:jpg, jpeg, png, PNG, JPG', 'max:2048'],
             'title' => ['required', 'min:5', 'max:100'],
             'body' => ['required', 'min:5'],
         ];

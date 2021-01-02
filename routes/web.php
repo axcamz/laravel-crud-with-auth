@@ -27,9 +27,9 @@ Route::get('/posts', [PostController::class, 'getAllPost'])->name('posts.getAllP
 Route::middleware('auth')->group(function() {
     Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
     Route::post('/posts/save', [PostController::class, 'store']);
-    Route::get('/posts/edit/{post:slug}', [PostController::class, 'edit']);
+    Route::get('/posts/edit/{post:slug}', [PostController::class, 'edit'])->name('posts.edit');
     Route::patch('/posts/update/{post:slug}', [PostController::class, 'update']);
-    Route::get('/posts/{post:slug}/delete', [PostController::class, 'delete']);
+    Route::get('/posts/{post:slug}/delete', [PostController::class, 'delete'])->name('posts.delete');
 });
 Route::get('/posts/{post:slug}', [PostController::class, 'getPost'])->name('posts.getPost');
 

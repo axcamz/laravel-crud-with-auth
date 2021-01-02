@@ -27,12 +27,6 @@ dropdown.addEventListener('click', () => {
     dropdown.classList.toggle('open');
 })
 
-// close dropdown
-document.addEventListener('keydown', (e) => {
-    if(e.key == 'Escape'){
-        dropdown.classList.remove('open')
-    }
-})
 
 // Logout handle
 const logout = document.querySelector('.logout')
@@ -41,3 +35,41 @@ logout.addEventListener('click', (e)=>{
     document.querySelector('#logout').submit();
 })
 
+// Preview Image before publish
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#preview-thumbnail').removeClass('hidden')
+            $('#preview-thumbnail').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+$("#thumbnail").change(function(){
+    readURL(this);
+});
+
+// delete Post handle
+
+const destory = document.querySelector('#delete');
+const deleteConfirm = document.querySelector('.delete-confirm')
+const closeConfirm = document.querySelector('.close');
+destory.addEventListener('click', () => {
+    deleteConfirm.classList.toggle('open');
+})
+
+closeConfirm.addEventListener('click', () => {
+    deleteConfirm.classList.remove('open')
+})
+
+// close Handle in press esc Key
+document.addEventListener('keydown', (e) => {
+    if(e.key == 'Escape'){
+        dropdown.classList.remove('open')
+        deleteConfirm.classList.remove('open')
+    }
+})

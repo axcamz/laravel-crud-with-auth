@@ -1,5 +1,5 @@
 <nav class="bg-black z-50">
-    <div class="flex flex-col lg:flex-row lg:px-0 px-3 py-2 lg:py-4  lg:container lg:mx-auto">
+    <div class="flex flex-col lg:flex-row xl:px-0 px-3 py-2 lg:py-4  lg:container lg:mx-auto">
         <div class="flex  items-center justify-between">
             <div class="font-bold text-xl lg:text-3xl text-white">Friday.</div>
             <button class="lg:hidden focus:outline-none" id="trigger">

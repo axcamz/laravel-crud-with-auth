@@ -1,20 +1,25 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="bg-gray-100">
-    <div class="lg:container lg:mx-auto lg:px-0 pt-5 px-3">
+@if (session()->has('success'))
+    <div class="session">
+        {{ session()->get('success') }}
+    </div>
+@endif
+<div class="bg-gray-100 min-h-screen">
+    <div class="lg:container lg:mx-auto xl:px-0 pt-5 px-3">
         <div class="flex justify-between max-w-screen-sm 2xl:max-w-full items-center">
             <div class="group z-10 max-w-max text-white bg-black px-3 py-1 rounded relative">
                 <div class="flex justify-between items-center">
                     @if (isset($category))
-                        <h1 class="text-2xl">{{ $category->name }}</h1>
+                        <h1 class="xl:text-2xl text-xl">{{ $category->name }}</h1>
                     @endif
                     @if (isset($tag))
-                        <h1 class="text-2xl">{{ $tag->name }}</h1>
+                        <h1 class="xl:text-2xl text-xl">{{ $tag->name }}</h1>
                     @else
                     @endif
                     @if (!(isset($tag)) && !(isset($category)))
-                        <h1 class="text-2xl">All Post</h1>
+                        <h1 class="xl:text-2xl text-xl">All Post</h1>
                     @endif
                     <svg class="lg:w-7 w-5 transform group-hover:rotate-180 transition ml-10" viewBox="-50 0 550 400">
                         <path fill="#fff" d="M225.923,354.706c-8.098,0-16.195-3.092-22.369-9.263L9.27,151.157c-12.359-12.359-12.359-32.397,0-44.751
@@ -29,9 +34,13 @@
                     @endforeach
                 </div>
             </div>
-            <a href="{{ route('posts.create') }}" class="lg:text-2xl text-lg  text-white bg-black px-2 py-1 rounded cursor-pointer hover:shadow-lg transition-shadow">Create Post</a>
+            @auth
+                <a href="{{ route('posts.create') }}" class="lg:text-2xl text-lg  text-white bg-black px-4 py-1 rounded cursor-pointer hover:shadow-lg transition-shadow">Create Post</a>
+            @else
+                <a href="{{ route('login') }}" class="lg:text-xl text-lg  text-white bg-black px-2 py-1 rounded cursor-pointer hover:shadow-lg transition-shadow">Login to Create Post</a>
+            @endauth
         </div>
-        <div class="grid grid-cols-1 2xl:justify-items-center 2xl:gap-1 2xl:grid-cols-2">
+        <div class="grid grid-cols-1 2xl:justify-items-center 2xl:gap-1 2xl:grid-cols-2 pb-10">
             @foreach ($posts as $post)
                 <div data-aos="fade-up-right" class="bg-white shadow-2xl max-w-screen-sm mt-7 rounded overflow-hidden cursor-pointer group">
                     <div class="overflow-hidden">
@@ -67,7 +76,7 @@
             @endforeach
         </div>
     </div>
-    <div class="mb-10">
+    <div class="pb-10">
         {{ $posts->links('vendor.pagination.tailwind') }}
     </div>
 </div>

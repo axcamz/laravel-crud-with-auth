@@ -18,8 +18,8 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" integrity="sha512-nMNlpuaDPrqlEls3IX/Q56H36qvBASwb3ipuo3MxeWbsQB1881ox0cRv7UPTgBlriqoynt35KjEwgGUeUXIPnw==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="{{ asset('css/aos.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/select2.css') }}"/>
 </head>
 <body>
     <div id="app">
@@ -29,18 +29,19 @@
             @yield('content')
         </main>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js" integrity="sha512-2ImtlRlf2VVmiGZsjm9bEyhjGW4dU7B6TNwh/hx/iSByxNENtj3WVE6o/9Lj4TJeVXPi4bnOIMXFIJJAeufa0A==" crossorigin="anonymous"></script>
+    <script src="{{ asset('js/jquery.js') }}"></script>
+    <script src="{{ asset('js/select2.js') }}"></script>
     <script type="text/javascript">
         $(document).ready(function(){
             $('.select2').select2({
                 placeholder: 'Choose Tags'
             })
         });
-        </script>
-    <script src="{{ asset('js/script.js') }}"></script>
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    </script>
+    <script src="{{ asset('js/aos.js') }}"></script>
     <script>
         AOS.init();
-    </script>
+        </script>
+    <script src="{{ asset('js/script.js') }}"></script>
 </body>
 </html>

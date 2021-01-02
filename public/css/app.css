@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css2?family=Poppins:wght@400;800&display=swap);/*! modern-normalize v1.0.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
+@import url(https://fonts.googleapis.com/css2?family=Poppins:wght@400;800&display=swap);@import url(https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap);/*! modern-normalize v1.0.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
 
 /*
 Document
@@ -11175,6 +11175,22 @@ video {
 }
 
 .flex-none {
+  flex: none;
+}
+
+.group:hover .group-hover\:flex-1 {
+  flex: 1 1 0%;
+}
+
+.group:hover .group-hover\:flex-auto {
+  flex: 1 1 auto;
+}
+
+.group:hover .group-hover\:flex-initial {
+  flex: 0 1 auto;
+}
+
+.group:hover .group-hover\:flex-none {
   flex: none;
 }
 
@@ -42123,6 +42139,22 @@ video {
     flex: none;
   }
 
+  .group:hover .sm\:group-hover\:flex-1 {
+    flex: 1 1 0%;
+  }
+
+  .group:hover .sm\:group-hover\:flex-auto {
+    flex: 1 1 auto;
+  }
+
+  .group:hover .sm\:group-hover\:flex-initial {
+    flex: 0 1 auto;
+  }
+
+  .group:hover .sm\:group-hover\:flex-none {
+    flex: none;
+  }
+
   .sm\:flex-grow-0 {
     flex-grow: 0;
   }
@@ -72591,6 +72623,22 @@ video {
   }
 
   .md\:flex-none {
+    flex: none;
+  }
+
+  .group:hover .md\:group-hover\:flex-1 {
+    flex: 1 1 0%;
+  }
+
+  .group:hover .md\:group-hover\:flex-auto {
+    flex: 1 1 auto;
+  }
+
+  .group:hover .md\:group-hover\:flex-initial {
+    flex: 0 1 auto;
+  }
+
+  .group:hover .md\:group-hover\:flex-none {
     flex: none;
   }
 
@@ -103065,6 +103113,22 @@ video {
     flex: none;
   }
 
+  .group:hover .lg\:group-hover\:flex-1 {
+    flex: 1 1 0%;
+  }
+
+  .group:hover .lg\:group-hover\:flex-auto {
+    flex: 1 1 auto;
+  }
+
+  .group:hover .lg\:group-hover\:flex-initial {
+    flex: 0 1 auto;
+  }
+
+  .group:hover .lg\:group-hover\:flex-none {
+    flex: none;
+  }
+
   .lg\:flex-grow-0 {
     flex-grow: 0;
   }
@@ -133536,6 +133600,22 @@ video {
     flex: none;
   }
 
+  .group:hover .xl\:group-hover\:flex-1 {
+    flex: 1 1 0%;
+  }
+
+  .group:hover .xl\:group-hover\:flex-auto {
+    flex: 1 1 auto;
+  }
+
+  .group:hover .xl\:group-hover\:flex-initial {
+    flex: 0 1 auto;
+  }
+
+  .group:hover .xl\:group-hover\:flex-none {
+    flex: none;
+  }
+
   .xl\:flex-grow-0 {
     flex-grow: 0;
   }
@@ -164004,6 +164084,22 @@ video {
   }
 
   .\32xl\:flex-none {
+    flex: none;
+  }
+
+  .group:hover .\32xl\:group-hover\:flex-1 {
+    flex: 1 1 0%;
+  }
+
+  .group:hover .\32xl\:group-hover\:flex-auto {
+    flex: 1 1 auto;
+  }
+
+  .group:hover .\32xl\:group-hover\:flex-initial {
+    flex: 0 1 auto;
+  }
+
+  .group:hover .\32xl\:group-hover\:flex-none {
     flex: none;
   }
 
