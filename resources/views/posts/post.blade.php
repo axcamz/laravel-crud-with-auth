@@ -1,50 +1,27 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container mt-5">
-        <h1>{{$post->title}}</h1>
-        <div class="d-flex justify-content-between align-items-end">
-            <span>Updated at {{$post->updated_at->diffforHumans()}}</span>
-            <div class="d-flex">
-                @auth
-                @can('update', $post)
-                <div class="btn-group">
-                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Option
-                    </button>
-                    <div class="dropdown-menu">
-                        <a href="/posts/edit/{{$post->slug}}" class="dropdown-item">Edit Post</a>
-                        <button  data-toggle="modal" data-target="#deleteModal" class="dropdown-item text-white bg-danger">Delete</button>
+    <div class="z-0 relative">
+        <img src="{{ $post->takeImage }}" alt="Thumbnail" class="lg:h-80 w-full object-cover object-center">
+    </div>
+    <div class="lg:px-0 px-3">
+        <div class="lg:container shadow-lg relative rounded -mt-20 lg:-mt-28 bg-white lg:px-0 lg:mx-auto text-black z-10">
+            <div class="lg:px-14 lg:py-14 px-2 py-2">
+                <h1 class="lg:text-5xl text-3xl font-semibold">{{ $post->title }}</h1>
+                <div class="flex mt-3">
+                    <div class="bg-yellow-500 px-1 lg:text-lg rounded inline-block">{{ $post->category->name }}</div>
+                    <div class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 ml-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path class="text-gray-900" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span class="text-gray-900 text-sm ml-1 ">{{ $post->created_at->diffForHumans() }}</span>
                     </div>
                 </div>
-                @endcan
-                @endauth
-                <a href="{{ route('posts.getAllPost') }}" class="btn btn-success ml-3">Back</a>
+                <span class="text-gray-900 mt-3 block">Author &middot; {{ $post->author->name }}</span>
+                <div class="mt-6">
+                    <p class="2xl:text-xl text-base">{{ $post->body }}</p>
+                </div>
             </div>
-        </div>
-        @include('posts.partials.category')
-        <div class="text-secondary">Author {{ $post->author->name }}</div>
-        <hr>
-        <p>{{ $post->body }}</p>
-    </div>
-    {{-- Modal --}}
-    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Delete Post</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              Are you sure to <strong class="text-danger">Delete</strong> this Post?
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <a href="/posts/{{$post->slug}}/delete" class="btn btn-danger">Delete</a>
-            </div>
-          </div>
         </div>
     </div>
 @endsection

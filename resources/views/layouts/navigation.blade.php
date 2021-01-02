@@ -1,7 +1,7 @@
 <nav class="bg-black">
     <div class="flex flex-col lg:flex-row lg:px-0 px-3 py-2 lg:py-4  lg:container lg:mx-auto">
         <div class="flex  items-center justify-between">
-            <div class="font-bold text-xl lg:text-3xl text-white">Diary.</div>
+            <div class="font-bold text-xl lg:text-3xl text-white">Friday.</div>
             <button class="lg:hidden focus:outline-none" id="trigger">
                 <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="35" height="35"  viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />

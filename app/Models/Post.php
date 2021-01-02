@@ -29,7 +29,7 @@ class Post extends Model
     public function getTakeImageAttribute()
     {
         if ($this->thumbnail) {
-            return "storage/" . $this->thumbnail;
+            return "/storage/" . $this->thumbnail;
         } else {
             false;
         }
