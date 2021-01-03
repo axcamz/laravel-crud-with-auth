@@ -27,6 +27,7 @@ class PostRequest extends FormRequest
             'thumbnail' => ['image', 'mimes:jpg, jpeg, png, PNG, JPG', 'max:2048'],
             'title' => ['required', 'min:5', 'max:100'],
             'body' => ['required', 'min:5'],
+            'category_id' => ['required'],
         ];
     }
 }

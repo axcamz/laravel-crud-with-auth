@@ -19,7 +19,7 @@
                     @else
                     @endif
                     @if (!(isset($tag)) && !(isset($category)))
-                        <h1 class="xl:text-2xl text-xl">All Post</h1>
+                        <h1 class="xl:text-2xl text-sm md:text-xl">All Post</h1>
                     @endif
                     <svg class="lg:w-7 w-5 transform group-hover:rotate-180 transition ml-10" viewBox="-50 0 550 400">
                         <path fill="#fff" d="M225.923,354.706c-8.098,0-16.195-3.092-22.369-9.263L9.27,151.157c-12.359-12.359-12.359-32.397,0-44.751
@@ -28,7 +28,7 @@
                     </svg>
                 </div>
                 <div class="bg-white absolute mt-1 max-h-0 transition-max-height group-hover:max-h-screen duration-700 ease-in rounded left-0 top-full shadow-lg text-black w-full flex flex-col overflow-hidden">
-                    <a href="{{ route('posts.getAllPost') }}" class="px-3 py-1 hover:bg-black hover:text-white">All Post</a>
+                    <a href="{{ route('posts.getAllPost') }}" class="px-3 py-1 hover:bg-black hover:text-white text-sm md:text-xl">All Post</a>
                     @foreach ($categories as $category)
                         <a href="{{ route('posts.filterByCategory', $category->name) }}" class="px-3 py-1 hover:bg-black hover:text-white">{{ $category->name }}</a>
                     @endforeach
@@ -37,7 +37,7 @@
             @auth
                 <a href="{{ route('posts.create') }}" class="lg:text-2xl text-lg  text-white bg-black px-4 py-1 rounded cursor-pointer hover:shadow-lg transition-shadow">Create Post</a>
             @else
-                <a href="{{ route('login') }}" class="lg:text-xl text-lg  text-white bg-black px-2 py-1 rounded cursor-pointer hover:shadow-lg transition-shadow">Login to Create Post</a>
+                <a href="{{ route('login') }}" class="lg:text-xl text-sm md:text-xl text-white bg-black px-2 py-1 rounded cursor-pointer hover:shadow-lg transition-shadow">Login to Create Post</a>
             @endauth
         </div>
         <div class="grid grid-cols-1 2xl:justify-items-center 2xl:gap-1 2xl:grid-cols-2 pb-10">
