@@ -110,3 +110,7 @@
         font-size: 1rem;
     }
 }
+
+a.active{
+    border-bottom: 1px solid white;
+}

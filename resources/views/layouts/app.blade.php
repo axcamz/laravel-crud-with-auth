@@ -32,6 +32,11 @@
     </div>
     <script src="{{ asset('js/jquery.js') }}"></script>
     <script src="{{ asset('js/select2.js') }}"></script>
+    <script src="{{ asset('js/aos.js') }}"></script>
+    <script>
+        AOS.init();
+    </script>
+    <script src="{{ asset('js/script.js') }}"></script>
     <script type="text/javascript">
         $(document).ready(function(){
             $('.select2').select2({
@@ -39,10 +44,5 @@
             })
         });
     </script>
-    <script src="{{ asset('js/aos.js') }}"></script>
-    <script>
-        AOS.init();
-        </script>
-    <script src="{{ asset('js/script.js') }}"></script>
 </body>
 </html>

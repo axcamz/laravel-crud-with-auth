@@ -14,7 +14,7 @@
         {{-- @else
         <div class="lg:h-80 w-full h-60 bg-gray-800 flex justify-center items-center text-white text-2xl">No Thumbnail</div> --}}
         {{-- @endif --}}
-        @auth
+        @if($post->author()->is(auth()->user()))
             <div class="absolute top-4 right-4 xl:right-8 bg-white bg-opacity-75 p-1 rounded-full group cursor-pointer z-50">
                 <svg xmlns="http://www.w3.org/2000/svg" class="text-black w-6 xl:w-9" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
@@ -24,7 +24,7 @@
                     <a class="hover:bg-black hover:text-white px-2 py-3" id="delete">Delete</a>
                 </div>
             </div>
-        @endauth
+        @endif
     </div>
     <div class="lg:px-0 px-3">
         <div class="lg:container shadow-lg relative rounded -mt-20 lg:-mt-28 bg-white lg:px-0 lg:mx-auto text-black z-10">

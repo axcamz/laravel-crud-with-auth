@@ -22,7 +22,7 @@
 </div>
 <div class="flex flex-col min-w-min mb-5">
     <label class="mb-3" for="category">Category</label>
-    <select class="py-2 px-3 max-w-sm border-gray-400 border ring-gray-300 rounded  focus:ring-4 focus:border-gray-800 transition outline-none" name="category_id" id="category_id">
+    <select class="py-2 px-3 bg-white max-w-sm border-gray-400 border ring-gray-300 rounded  focus:ring-4 focus:border-gray-800 transition outline-none" name="category_id" id="category_id">
         <option value="" disabled selected>Select One!</option>
         @foreach ($categories as $category)
         <option {{ $post->category_id == $category->id ? 'selected':null }} value="{{ $category->id }}">{{ ucfirst(trans($category->name)) }}</option>

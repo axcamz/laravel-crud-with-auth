@@ -74,7 +74,7 @@ class PostController extends Controller
 
         session()->flash('success', 'Create Post Success');
 
-        return back();
+        return redirect('/posts');
     }
 
     // Edit Function

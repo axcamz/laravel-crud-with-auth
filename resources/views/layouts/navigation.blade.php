@@ -13,8 +13,8 @@
         </div>
         <div class="lg:flex items-center w-full justify-end lg:mt-0 mt-2 text-white nav-link hidden" id="nav-link">
             <div class="flex lg:flex-row flex-col">
-                <div class="lg:ml-5"><a href="/">home</a></div>
-                <div class="lg:ml-5 mb-3 lg:mb-0"><a href="{{ route('posts.getAllPost') }}">posts</a></div>
+                <div class="lg:ml-5"><a class="{{ request()->is('/') ? 'active' : null }}" href="/">home</a></div>
+                <div class="lg:ml-5 mb-3 lg:mb-0"><a class="{{ request()->is('posts') ? 'active' : null }}" href="{{ route('posts.getAllPost') }}">posts</a></div>
                 {{-- <div class="ml-5"><a href="">about</a></div> --}}
                 {{-- <div class="ml-5"><a href="">contact</a></div> --}}
             </div>
@@ -26,8 +26,8 @@
                     <div><a href="{{ route('login') }}" class=" font-semibold text-lg bg-white text-black px-2 py-1 rounded" >Log in</a></div>
                     @endif
                 @else
-                    <div class="dropdown z-50 flex justify-between items-center text-lg bg-white text-black px-2 py-1 rounded">
-                        <p class="mr-5 md:text-base text-sm">{{ Auth::user()->name }}</p>
+                    <div class="dropdown z-50 flex justify-between items-center text-lg bg-white text-black px-2 py-1 rounded w-40">
+                        <p class="mr-5 md:text-base text-sm">{{ explode(' ' ,trim(auth()->user()->name))[0] }}</p>
                         <svg class="dropdown-icon" width="20" height="20" viewBox="-50 0 550 400">
                             <path d="M225.923,354.706c-8.098,0-16.195-3.092-22.369-9.263L9.27,151.157c-12.359-12.359-12.359-32.397,0-44.751
                             c12.354-12.354,32.388-12.354,44.748,0l171.905,171.915l171.906-171.909c12.359-12.354,32.391-12.354,44.744,0

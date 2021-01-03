@@ -3,7 +3,7 @@
 @section('content')
     <div class="xl:container xl:mx-auto xl:px-0 px-3 py-10 cursor-default">
         <div class="flex lg:flex-row flex-col">
-            <div class="w-1/2 lg:mb-0 mb-10">
+            <div class="lg:w-1/2 w-full  lg:mb-0 mb-10">
                 <div class="mb-5">
                     <h1 class="text-5xl font-medium">Hi👋, {{ explode(' ',trim(auth()->user()->name))[0] }} </h1>
                     <p class="text-xl">How are you today?</p>
