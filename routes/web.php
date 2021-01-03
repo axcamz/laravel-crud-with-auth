@@ -21,6 +21,8 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+// Profile
+Route::get('/profile', [HomeController::class, 'profile'])->name('profile');
 
 // CRUD Posts
 Route::get('/posts', [PostController::class, 'getAllPost'])->name('posts.getAllPost');

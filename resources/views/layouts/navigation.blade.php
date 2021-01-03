@@ -35,7 +35,7 @@
                         </svg>
                         <div class="dropdown-items rounded">
                             <div class="py-1 px-2 link hover:bg-black hover:text-white">
-                                <a href="#">Profile</a>
+                                <a href="{{route('profile')}}">Profile</a>
                             </div>
                             <div class="py-1 px-2 link hover:bg-black hover:text-white">
                                 <a class="logout" href="#">Logout</a>
